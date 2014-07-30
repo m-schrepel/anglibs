@@ -1,41 +1,43 @@
 angular.module('anglibs', [])
 .controller('LibsCtrl', function($scope){
-	$scope.maleName;
-	$scope.jobTitle;
-	$scope.tediousTask;
-	$scope.dirtyJob;
-	$scope.celebrity;
-	$scope.uselessSkill;
-	$scope.obnoxiousCeleb;
-	$scope.hugeNumber;
-	$scope.adjective
-});
+	$scope.libs = {
+		maleName: "",
+		jobTitle: "",
+		tediousTask: "",
+		dirtyJob: "",
+		celebrity: "",
+		uselessSkill: "",
+		obnoxiousCeleb: "",
+		hugeNumber: "",
+		adjective: "",
+	}
+	$scope.originalData = angular.copy($scope.libs)
 
-// $(function(){
-// 	$('input').keyup(function(){
-// 		var allInput = $('input')
-// 		var inArr = []
-// 		for (var i = 0; i < allInput.length; i++) {
-// 			inArr.push($('input:eq('+i+')').val().length)
-// 		};
-// 		if(inArr.sort()[0]===0){
+	$scope.inputs = true;
+	$scope.text = false;
 
-// 		} else {
-// 			$('p').fadeIn(750)
-// 		}
-// 	});
-// });
-$(function(){
-	$('input').keyup(function(){
-		var allInput = $('input')
-		var inArr = []
-		for (var i = 0; i < allInput.length; i++) {
-			inArr.push($('input:eq('+i+')').val().length)
-		};
-		if(inArr.sort()[0]===0){
-
-		} else {
-			$('p').fadeIn(750)
+	$scope.submit = function(){
+		if($scope.libsform.$valid){
+			$scope.inputs = false;
+			$scope.text = true;
 		}
-	});
+	}
+	$scope.startOver = function(){
+		$scope.inputs = true;
+		$scope.text = false;
+		$scope.libsform.$setPristine();
+		$scope.libs = angular.copy($scope.originalData)
+	}
 });
+
+// $(function () {
+//     var allInput = $('input');
+//     $('input').focusout(function () {
+//         for (var i = 0; i < allInput.length; i++) {
+//             if (allInput[i].value.length === 0) {
+//                 return;
+//             }            
+//         }
+//         $('p').fadeIn(750);
+//     });
+// });

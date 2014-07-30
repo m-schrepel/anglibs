@@ -2,11 +2,8 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<<<<<<< HEAD
 <!--[if gt IE 8]><!--> <html ng-app="anglibs"> <!--<![endif]-->
-=======
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
->>>>>>> 8d704cc29b688d8d1a973db0e9f7ff54387928af
     <head>
         <meta charset="utf-8">
         <title>anglibs</title>
@@ -27,11 +24,8 @@
         <!-- endbuild -->
 
     </head>
-<<<<<<< HEAD
     <body ng-controller="LibsCtrl">
-=======
     <body ng-app="">
->>>>>>> 8d704cc29b688d8d1a973db0e9f7ff54387928af
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -46,57 +40,39 @@
         </div>
       </div>
     </div>
-        <div class="row middle">
+        <div class="row middle" ng-show="inputs">
+          <form name="libsform" ng-submit="submit()">
           <div class="col-xs-4">
-            <input type="text" placeholder="Male Name" ng-model="maleName">
-            <input type="text" placeholder="Job Title" ng-model="jobTitle">
-            <input type="text" placeholder="Tedious Task" ng-model="tediousTask">
+            <input type="name" name="maleName" placeholder="Male Name" ng-model="libs.maleName" required>
+            <input type="text" name="jobTitle" placeholder="Job Title" ng-model="libs.jobTitle" required>
+            <input type="text" name="tediousTask" placeholder="Tedious Task" ng-model="libs.tediousTask" required>
           </div>
           <div class="col-xs-4">
-            <input type="text" placeholder="Dirty Task" ng-model="dirtyTask">
-            <input type="text" placeholder="Celebrity" ng-model="celebrity">
-            <input type="text" placeholder="Useless Skill" ng-model="uselessSkill">
+            <input type="text" name="dirtyTask" placeholder="Dirty Task" ng-model="libs.dirtyTask" required>
+            <input type="name" name="celebrity" placeholder="Celebrity" ng-model="libs.celebrity" required>
+            <input type="text" name="uselessSkill" placeholder="Useless Skill" ng-model="libs.uselessSkill" required>
           </div>
           <div class="col-xs-4">
-            <input type="text" placeholder="Obnoxious Celebrity" ng-model="obnoxiousCeleb">
-            <input type="text" placeholder="Huge Number" ng-model="hugeNumber">
-            <input type="text" placeholder="Adjective" ng-model="adjective">
+            <input type="name" name="obnoxiousCeleb" placeholder="Obnoxious Celebrity" ng-model="libs.obnoxiousCeleb" required>
+            <input type="number" name="hugeNumber" placeholder="Huge Number" ng-model="libs.hugeNumber" required>
+            <input type="text" name="adjective" placeholder="Adjective" ng-model="libs.adjective" required>
+            <input id="submit" type="submit" name="generate" value="Generate my MadLib!">
           </div>
+          </form>
         </div>
-     <div class="row last">
+
+     <div class="row last" ng-show="text">
       <div class="col-xs-8 col-xs-offset-2">
        <p id="hidden-until">
-         <span class="bold-under">{{maleName}}</span> was a <span class="bold-under">{{jobTitle}}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span class="bold-under">{{tediousTask}}</span> and <span class="bold-under">{{dirtyTask}}</span>. So, <span class="bold-under">{{maleName}}</span> met with his life mentor <span class="bold-under">{{celebrity}}</span> who told him to learn how to <span class="bold-under">{{uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span class="bold-under">{{uselessSkill}}</span> so he studied programming instead. 
+         <span class="bold-under">{{libs.maleName}}</span> was a <span class="bold-under">{{libs.jobTitle}}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span class="bold-under">{{libs.tediousTask}}</span> and <span class="bold-under">{{libs.dirtyTask}}</span>. So, <span class="bold-under">{{libs.maleName}}</span> met with his life mentor <span class="bold-under">{{libs.celebrity}}</span> who told him to learn how to <span class="bold-under">{{libs.uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span class="bold-under">{{libs.uselessSkill}}</span> so he studied programming instead. 
  
-         What a great decision! With his new skills, <span class="bold-under">{{maleName}}</span> built a(n) <span class="bold-under">{{adjective}}</span> robot named <span class="bold-under">{{obnoxiousCeleb}}</span> that not only loved <span class="bold-under">{{dirtyTask}}</span> but did it <span class="bold-under">{{hugeNumber}}</span> times faster. 
+         What a great decision! With his new skills, <span class="bold-under">{{libs.maleName}}</span> built a(n) <span class="bold-under">{{libs.adjective}}</span> robot named <span class="bold-under">{{libs.obnoxiousCeleb}}</span> that not only loved <span class="bold-under">{{libs.dirtyTask}}</span> but did it <span class="bold-under">{{libs.hugeNumber}}</span> times faster. 
+        <input type="submit" value="Start Over" name="redo" ng-click="startOver()">
        </p>
      </div>
+
     </div>
 
-      
-
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
-
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/bootstrap/js/affix.js"></script>
-        <script src="bower_components/bootstrap/js/alert.js"></script>
-        <script src="bower_components/bootstrap/js/dropdown.js"></script>
-        <script src="bower_components/bootstrap/js/tooltip.js"></script>
-        <script src="bower_components/bootstrap/js/modal.js"></script>
-        <script src="bower_components/bootstrap/js/transition.js"></script>
-        <script src="bower_components/bootstrap/js/button.js"></script>
-        <script src="bower_components/bootstrap/js/popover.js"></script>
-        <script src="bower_components/bootstrap/js/carousel.js"></script>
-        <script src="bower_components/bootstrap/js/scrollspy.js"></script>
-        <script src="bower_components/bootstrap/js/collapse.js"></script>
-        <script src="bower_components/bootstrap/js/tab.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.16/angular.min.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
